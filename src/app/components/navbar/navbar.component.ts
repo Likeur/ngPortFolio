@@ -55,7 +55,7 @@ export class NavbarComponent {
         const darkModeIcon = document.querySelector('#darkmodeicon')!
   
         document.documentElement.classList.toggle('dark')
-        darkMode.classList.toggle('-rotate-45')
+        darkMode.classList.toggle('rotate-45')
         if (document.documentElement.className == 'dark'){
             darkModeIcon.className = 'bx bx-sun'
         } else{
