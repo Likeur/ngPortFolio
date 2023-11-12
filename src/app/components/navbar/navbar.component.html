@@ -1,17 +1,17 @@
 <nav class="flex items-center justify-between p-4 lg:p-8">
     <div>
-        <a href="" class="font-thin text-xl uppercase dark:text-white">Likeur.</a>
+        <a href="" class="font-thin text-xl uppercase duration-300 dark:text-white">Likeur.</a>
     </div>
-    <ul id="menuLinks" class="absolute bg-gray-950 top-0 z-20 p-4 w-[70%] lg:w-[40%] right-0 h-screen flex flex-col justify-center translate-x-[100rem] duration-300">
+    <ul id="menuLinks" class="absolute bg-gray-950 top-0 z-20 p-4 w-screen lg:w-[40%] right-0 h-screen flex flex-col justify-center translate-x-[100rem] duration-300">
         @for (item of navLinks; track item.id) {
             <li (click)="openMenu()" class="uppercase font-thin ml-16 text-white group">
-                <a routerLink="{{ item.route }}" routerLinkActive="text-blue-600" class="block text-3xl mt-3 duration-300 hover:text-blue-600"> {{ item.title}} </a>
+                <a routerLink="{{ item.route }}" routerLinkActive="text-blue-600" class="block text-3xl mt-2 duration-300 hover:text-blue-600"> {{ item.title}} </a>
                 <span class="hidden lg:block bg-blue-600 h-2 w-8 opacity-0 rounded-full translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 duration-300"></span>
             </li>
             
         }
 
-        <div class="mt-56 relative bottom-5 border-t border-white/30 p-4">
+        <div class="mt-56 absolute w-full bottom-5 border-t border-white/30 p-4">
             <ul class="flex justify-around text-gray-400 ">
                 <li><a href="">Github</a></li>
                 <li><a href="">LinkedIn</a></li>
