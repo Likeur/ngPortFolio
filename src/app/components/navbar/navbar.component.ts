@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { gsap } from 'gsap';
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './navbar.component.html',
-  styles: ``
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
 
@@ -39,6 +38,9 @@ export class NavbarComponent {
       },
     ]
 
+    constructor(){
+      
+    }
     openMenu(){
       const menuLinks = document.querySelector('#menuLinks')!
       const btnMenu = document.querySelector('#btn-menu')!
@@ -49,6 +51,23 @@ export class NavbarComponent {
       btnMenu.classList.toggle('rotate-45')
     }
 
+    transition(){
+      const boxes = document.querySelectorAll('.box')!
+      const tl = gsap.timeline()
+
+      tl.from(boxes, {
+        height: '0',
+      }).to(boxes ,{
+        height: '100%',
+        stagger: 0.2,
+        duration: 0.6,
+      }).to(boxes,{
+        height:'0',
+        stagger: 0.2,
+        duration: 0.6
+      })
+    }
+    
     isDarkmode(){
       function darkmode(){
         const darkMode = document.querySelector('#darkmode')!
@@ -64,5 +83,18 @@ export class NavbarComponent {
       }
   
       darkmode()
+    }
+
+    ngOnInit(){
+      const boxes = document.querySelectorAll('.box')!
+      const tl = gsap.timeline()
+
+      tl.from(boxes, {
+        height: '100%',
+      }).to(boxes ,{
+        height: '0',
+        stagger: 0.2,
+        duration: 0.6,
+      })
     }
 }
